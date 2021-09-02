@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "aes.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +45,10 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t aes_key[] = {0x2b, 0x7e, 0x15, 0x16, 0x28, 0xae, 0xd2, 0xa6, 0xab, 0xf7, 0x15, 0x88, 0x09, 0xcf, 0x4f, 0x3c};
+uint8_t msg_to_encrpt[] = {0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x2c, 0x20, 0x53, 0x74, 0x61, 0x72, 0x6c, 0x69, 0x6e, 0x65, 
+0x2c, 0x20, 0x74, 0x68, 0x69, 0x73, 0x20, 0x69, 0x73, 0x20, 0x6d, 0x79, 0x20, 0x74, 0x65, 0x73, 0x74};
+uint8_t encrpt_msg[32];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -100,7 +103,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-
+  AES_ECB_encrypt(msg_to_encrpt, aes_key, encrpt_msg, sizeof(msg_to_encrpt)/sizeof(uint8_t));
   /* USER CODE END 2 */
 
   /* Infinite loop */
