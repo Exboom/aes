@@ -41,12 +41,8 @@ void decryp_measur(void)
     measur_uart[2] = (uint8_t)(measur_time >> 16);
     measur_uart[3] = (uint8_t)(measur_time >> 24);
 
-    for (size_t i = 0; i < sizeof(measur_uart) / sizeof(uint8_t); i++) {
+    for (size_t i = 0; i < 4; i++) {
         LL_USART_TransmitData8(USART1, measur_uart[i]); //transmit time
     }
     /****************/
-
-    /* sleep */
-
-    /*********/
 }

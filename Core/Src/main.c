@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "aes.h"
+#include "cmsis_gcc.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -111,7 +112,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+    LL_SYSTICK_DisableIT();
+    LL_LPM_EnableSleep();
+    __WFI();
+    decryp_measur();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
