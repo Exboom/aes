@@ -35,5 +35,6 @@ void AES_CBC_decrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length, co
 
 #endif // #if defined(CBC) && CBC
 
+void decryp_measur(void);
 
 #endif //_AES_H_
